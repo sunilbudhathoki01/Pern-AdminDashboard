@@ -1,6 +1,18 @@
-import { pgTable, serial, text } from "drizzle-orm/pg-core";
+import {
+  pgTable,
+  serial,
+  varchar,
+  integer,
+  numeric,
+  timestamp,
+} from "drizzle-orm/pg-core";
 
-export const demoUsers = pgTable("demo_users", {
+export const cars = pgTable("cars", {
   id: serial("id").primaryKey(),
-  name: text("name"),
+  make: varchar("make", { length: 100 }).notNull(),
+  name: varchar("name", { length: 100 }).notNull(),
+  model: varchar("model", { length: 100 }).notNull(),
+  year: integer("year").notNull(),
+  price: numeric("price", { precision: 10, scale: 2 }).notNull(),
+  createdAt: timestamp("created_at").defaultNow(),
 });
