@@ -11,7 +11,7 @@ app.use(express.json());
 // Health check
 app.get("/", (_req, res) => {
   console.log("Server is running successfully");
-  res.send("Hello from API 🚀");
+  res.send("Hello from API ");
 });
 
 // Create a new car
